@@ -2,6 +2,9 @@ package guru.springframework.spring6webapp.domain;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
+
 @Entity
 public class Publisher {
     @Id
@@ -12,6 +15,9 @@ public class Publisher {
     private String city;
     private String state;
     private String zipCode;
+
+    @OneToMany(mappedBy = "publisher")
+    private Set<Book> books;
 
     public void setId(Long id) {
         this.id = id;
